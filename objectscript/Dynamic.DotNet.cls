@@ -40,6 +40,7 @@ ClassMethod Test(dllPath As %RawString) [ Final ]
     set grades = gateway.new("System.Collections.Hashtable")
     do grades.Add("Biology","3.8")
     do grades.%set("Biology", "3.1")
+    write "Biology grade changed to 3.1",!
     do grades.Add("French","3.75")
     do grades.Add("Spanish","2.75")
     set student.Grades = grades
@@ -114,7 +115,7 @@ ClassMethod Test(dllPath As %RawString) [ Final ]
     set newStreet.Name = "Del Monte"
     set newHome.City = "Boston"
     set newHome.State = "MA"
-    set newHome.Street = street
+    set newHome.Street = newStreet
     set newHome.Zip = "40480"
     do student.ChangeAddress(home, newHome)
 
@@ -161,12 +162,12 @@ ClassMethod TestArrays(dllPath As %RawString)
 
     set home2 = gateway.new("Samples.InterSystems.Gateway.Address")
     set street2 = gateway.new("Samples.InterSystems.Gateway.Street")
-    set street2.Name = "Memorial Drive"
-    set street2.Number = "One"
-    set home2.City = "Cambridge"
-    set home2.Street = street
-    set home2.State = "MA"
-    set home2.Zip = "02142"
+    set street2.Name = "Santa Cruz Ave"
+    set street2.Number = "4555"
+    set home2.City = "San Diego"
+    set home2.Street = street2
+    set home2.State = "CA"
+    set home2.Zip = "92109"
 
     set addressArray = ##class(%ListOfObjects).%New()
     do addressArray.Insert(home)
